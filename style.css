@@ -1,0 +1,147 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body{
+    background:rgba(179, 172, 172, 0.111);
+    color:#253448;
+    margin: 30px;
+}
+
+/* NAVBAR */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 50px;
+    background:rgba(255,255,255,0.189);
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li{
+    cursor:pointer;
+    transition:0.3s;
+}
+
+nav ul li:hover{
+    color:#3a09dcf8;
+}
+
+.container{
+    padding:40px;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:30px;
+    margin-bottom:40px;
+}
+
+.card{
+    background:rgba(255,255,255,0.592);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.05);
+    text-align:center;
+}
+
+.card h3{
+    font-size:14px;
+    color:#6583b7;
+}
+
+.card h1{
+    margin:10px 0 15px;
+    color:#1c6210cf;
+}
+
+.card h5{
+    font-size:12px;
+    color:#8d8f8e;
+}
+
+/* EMPTY IMAGE */
+.empty-img{
+    width:90px;
+    margin-top:10px;
+    opacity:0.7;
+    animation:emptyPop 0.6s ease forwards;
+    border-radius:30%;
+    justify-self: center;
+
+}
+
+/* FORM + TABLE + ABOUT */
+.add-section,.table-section,.about{
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.05);
+    margin-bottom:40px;
+}
+
+input,select{
+    padding:10px 15px;
+    border-radius:10px;
+    border:1px solid #767373;
+    margin:8px 5px 8px 0;
+}
+
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:10px;
+    background:#8385ee;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#4f46e5;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th,td{
+    padding:12px;
+    border-bottom:1px solid #c9c1c1;
+}
+
+th{
+    color:#8b96a9;
+    text-align:left;
+}
+
+.credit{color:#16a34a;font-weight:600;}
+.debit{color:#dc2626;font-weight:600;}
+.danger{color:rgb(228,80,80);}
+
+@keyframes emptyPop{
+    0%{opacity:0;transform:scale(0.85)}
+    60%{opacity:1;transform:scale(1.05)}
+    100%{transform:scale(1)}
+}
+
+@media(max-width:768px){
+    nav{flex-direction:column;gap:10px;}
+    .container{padding:20px;}
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Expense Tracker</title>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <h2>EXPEN<span class="danger">SE</span></h2>
+    <ul>
+        <li onclick="scrollToSection('dashboard')">Dashboard</li>
+        <li onclick="scrollToSection('add')">Add</li>
+        <li onclick="scrollToSection('transactions')">History</li>
+        <li onclick="scrollToSection('about')">About</li>
+    </ul>
+</nav>
+
+<div class="container">
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="cards">
+
+    <div class="card">
+        <h3>Total Balance</h3>
+        <h1 id="balance">₹0</h1>
+        <img id="balanceEmpty" class="empty-img" src="no money.jpg" style="display:none;"><br><br>
+        <h5>This month</h5>
+    </div>
+
+    <div class="card">
+        <h3>Monthly Income</h3>
+        <h1 id="income">₹0</h1>
+        <input type="number" id="incomeInput" placeholder="Enter Income"><br><br>
+        <button onclick="setIncome()">Save</button>
+        <button onclick="resetAll()">Reset</button>
+    </div>
+
+    <div class="card">
+        <h3>Total Expenses</h3>
+        <h1 id="expenses">₹0</h1>
+        <canvas id="expenseChart" style="max-width:180px;margin:auto;"></canvas>
+        <img id="expenseEmpty" class="empty-img"
+             src="https://cdn-icons-png.flaticon.com/512/7486/7486740.png"
+             style="display:none;">
+        <h5>This month</h5>
+    </div>
+
+</div>
+
+<!-- ADD SECTION -->
+<div id="add" class="add-section">
+    <h2>Add Transaction</h2>
+    <input type="number" id="amount" placeholder="Amount">
+    <select id="type">
+        <option value="debit">Debit (Expense)</option>
+        <option value="credit">Credit (Income Received)</option>
+    </select>
+    <select id="category">
+        <option>Food</option>
+        <option>Shopping</option>
+        <option>Travel</option>
+        <option>Academics</option>
+        <option>Other</option>
+    </select>
+    <button onclick="addTransaction()">Add</button>
+</div>
+
+<!-- TRANSACTIONS -->
+<div id="transactions" class="table-section">
+    <h2>Transaction History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="about">
+    <h2>About</h2>
+    <p>Set your total income and monitor your financial growth.
+       Built with simplicity, clarity, and modern design principles.</p>
+</div>
+
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+</body>
+</html>
